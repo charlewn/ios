@@ -496,7 +496,6 @@
 		F77B0F211D118A16002130FE /* ZSSh6.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0DA31C889300008DAB36 /* ZSSh6.png */; };
 		F77B0F231D118A16002130FE /* ZSSh3.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0D9D1C889300008DAB36 /* ZSSh3.png */; };
 		F77B0F251D118A16002130FE /* ZSSh1.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0D991C889300008DAB36 /* ZSSh1.png */; };
-		F77B0F281D118A16002130FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F787E5581BC503ED00AFBFE1 /* Main.storyboard */; };
 		F77B0F291D118A16002130FE /* ZSSleftjustify.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0DB11C889300008DAB36 /* ZSSleftjustify.png */; };
 		F77B0F2B1D118A16002130FE /* ZSSclearstyle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0D961C889300008DAB36 /* ZSSclearstyle@2x.png */; };
 		F77B0F2C1D118A16002130FE /* ZSSlink.png in Resources */ = {isa = PBXBuildFile; fileRef = F70F0DB31C889300008DAB36 /* ZSSlink.png */; };
@@ -1593,7 +1592,6 @@
 		F78316871C0CB3CA00C43975 /* CCShareUserOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCShareUserOC.m; sourceTree = "<group>"; };
 		F786AC9B1EBDC88B0055AE9D /* NCDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCDatabase.swift; sourceTree = "<group>"; };
 		F786ACA91EBDCCE60055AE9D /* NCManageDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCManageDatabase.swift; sourceTree = "<group>"; };
-		F787E5581BC503ED00AFBFE1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F78964A71EBB576C00403E13 /* JDStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarNotification.h; sourceTree = "<group>"; };
 		F78964A81EBB576C00403E13 /* JDStatusBarNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDStatusBarNotification.m; sourceTree = "<group>"; };
 		F78964A91EBB576C00403E13 /* JDStatusBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarStyle.h; sourceTree = "<group>"; };
@@ -2020,7 +2018,6 @@
 		F70211F31BAC56E9003FC03E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F787E5581BC503ED00AFBFE1 /* Main.storyboard */,
 				F70211F51BAC56E9003FC03E /* CCCellMain.m */,
 				F70211F61BAC56E9003FC03E /* CCCellMain.xib */,
 				F70211F41BAC56E9003FC03E /* CCCellMain.h */,
@@ -4055,7 +4052,6 @@
 				F77B0F231D118A16002130FE /* ZSSh3.png in Resources */,
 				F769D39C1E9E1506006DBBB4 /* CCLocalStorageCell.xib in Resources */,
 				F77B0F251D118A16002130FE /* ZSSh1.png in Resources */,
-				F77B0F281D118A16002130FE /* Main.storyboard in Resources */,
 				F762CB621EACB7D400B38484 /* Reader-Mark-Y@2x.png in Resources */,
 				F762CB571EACB7D400B38484 /* Reader-Button-H.png in Resources */,
 				F762CB661EACB7D400B38484 /* Reader-Thumbs@2x.png in Resources */,
