@@ -290,46 +290,41 @@
 {
     XLFormPickerCell *pickerAccount = (XLFormPickerCell *)[[self.form formRowWithTag:@"pickerAccount"] cellForFormController:self];
     
-    NSString *accountNow = pickerAccount.rowDescriptor.value;
-    NSArray *listAccount = [CCCoreData getAllAccount];
-    
     [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
     
     if (buttonIndex == 0 && actionSheet.tag == actionSheetCancellaAccount) {
         
-        [app cancelAllOperations];
+        NSString *accountNow = pickerAccount.rowDescriptor.value;
         
-        [[CCNetworking sharedNetworking] settingSessionsDownload:YES upload:YES taskStatus:k_taskStatusCancel activeAccount:app.activeAccount activeUser:app.activeUser activeUrl:app.activeUrl];
-
         [self deleteAccount:accountNow];
         
-        // Clear active user
-        [app settingActiveAccount:nil activeUrl:nil activeUser:nil activePassword:nil];
-        
-        listAccount = [CCCoreData getAllAccount];
-        
+        NSArray *listAccount = [CCCoreData getAllAccount];
         if ([listAccount count] > 0) [self ChangeDefaultAccount:listAccount[0]];
         else {
             [self addAccountFoced];
-            return;
         }
     }
 }
 
 - (void)deleteAccount:(NSString *)account
 {
+    [app cancelAllOperations];
+    [[CCNetworking sharedNetworking] settingSessionsDownload:YES upload:YES taskStatus:k_taskStatusCancel activeAccount:app.activeAccount activeUser:app.activeUser activeUrl:app.activeUrl];
+    
     [CCCoreData flushTableAccount:account];
     
     [[NCManageDatabase sharedInstance] clearTable:[tableActivity class] account:account];
     [[NCManageDatabase sharedInstance] clearTable:[tableAutomaticUpload class] account:app.activeAccount];
     [[NCManageDatabase sharedInstance] clearTable:[tableCapabilities class] account:app.activeAccount];
     [[NCManageDatabase sharedInstance] clearTable:[tableExternalSites class] account:app.activeAccount];
+    [[NCManageDatabase sharedInstance] clearTable:[tableShare class] account:app.activeAccount];
 
     [CCCoreData flushTableDirectoryAccount:account];
     [CCCoreData flushTableLocalFileAccount:account];
     [CCCoreData flushTableMetadataAccount:account];
     
-    [[NCManageDatabase sharedInstance] clearTable:[tableShare class] account:app.activeAccount];
+    // Clear active user
+    [app settingActiveAccount:nil activeUrl:nil activeUser:nil activePassword:nil];
 }
 
 - (void)answerDelAccount:(XLFormRowDescriptor *)sender
