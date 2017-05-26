@@ -171,8 +171,10 @@
     
     if (record) {
         
-        if ([record.cameraUploadFolderName length] > 0 ) return record.cameraUploadFolderName;
-        else return k_folderDefaultCameraUpload;
+        if ([record.cameraUploadFolderName length] > 0 )
+            return record.cameraUploadFolderName;
+        else
+            return [[NCBrandOptions sharedInstance] folderDefaultCameraUpload];
         
     } else return @"";
 }
