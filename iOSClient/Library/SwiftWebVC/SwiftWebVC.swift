@@ -325,15 +325,20 @@ extension SwiftWebVC: WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        let userAgent : String = CCUtility.getUserAgent()
-        
-        if (navigationAction.request.value(forHTTPHeaderField: "User-Agent") == userAgent) {
+        if #available(iOS 9.0, *) {
             decisionHandler(.allow)
         } else {
-            let newRequest : NSMutableURLRequest = navigationAction.request as! NSMutableURLRequest
-            newRequest.setValue(userAgent, forHTTPHeaderField: "User-Agent")
-            decisionHandler(.cancel)
-            webView.load(newRequest as URLRequest)
+            
+            let userAgent : String = CCUtility.getUserAgent()
+
+            if (navigationAction.request.value(forHTTPHeaderField: "User-Agent") == userAgent) {
+                decisionHandler(.allow)
+            } else {
+                let newRequest : NSMutableURLRequest = navigationAction.request as! NSMutableURLRequest
+                newRequest.setValue(userAgent, forHTTPHeaderField: "User-Agent")
+                decisionHandler(.cancel)
+                webView.load(newRequest as URLRequest)
+            }
         }
     }
     
