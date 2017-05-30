@@ -24,7 +24,7 @@
 
 import UIKit
 
-class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource, CCLoginDelegate {
 
     @IBOutlet weak var themingBackground: UIImageView!
     @IBOutlet weak var themingAvatar: UIImageView!
@@ -42,6 +42,8 @@ class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var menuExternalSite: [tableExternalSites]?
     var tableAccont : TableAccount?
+    
+    var loginWeb : CCLoginWeb!
     
     override func viewDidLoad() {
         
@@ -361,8 +363,14 @@ class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 let manageAccount = CCManageAccount()
                 manageAccount.delete(self.appDelegate.activeAccount)
-                manageAccount.addFoced()
+                
+                self.loginWeb = CCLoginWeb()
+                self.loginWeb.delegate = self 
+                self.loginWeb.loginType = loginAddForced
+                
+                self.loginWeb.presentModalWithDefaultTheme(self)
             }
+            
             
             let actionNo = UIAlertAction(title: NSLocalizedString("_no_delete_", comment: ""), style: .default) { (action:UIAlertAction) in
                 print("You've pressed No button");
@@ -399,6 +407,12 @@ class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let controller = CCManageAccount.init()
         
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    func loginSuccess(_ loginType: NSInteger) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "initializeMain"), object: nil)
     }
 
 }
