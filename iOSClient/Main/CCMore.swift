@@ -111,7 +111,11 @@ class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource, CCLo
         
         // ITEM : Local storage
         item = OCExternalSites.init()
-        item.name = "_local_storage_"
+        if NCBrandOptions.sharedInstance.use_available_offline_title == true {
+            item.name = "_available_offline_"
+        } else {
+            item.name = "_local_storage_"
+        }
         item.icon = "moreLocalStorage"
         item.url = "segueLocalStorage"
         functionMenu.append(item)

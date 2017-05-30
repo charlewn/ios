@@ -174,7 +174,7 @@
         if ([record.cameraUploadFolderName length] > 0 )
             return record.cameraUploadFolderName;
         else
-            return [[NCBrandOptions sharedInstance] folderDefaultCameraUpload];
+            return [[NCBrandOptions sharedInstance] folderDefaultAutoUpload];
         
     } else return @"";
 }

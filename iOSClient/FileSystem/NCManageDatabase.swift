@@ -213,7 +213,7 @@ class NCManageDatabase: NSObject {
                 
                 if activeUrl == nil {
                     
-                    return NCBrandOptions.sharedInstance.folderDefaultCameraUpload
+                    return NCBrandOptions.sharedInstance.folderDefaultAutoUpload
                     
                 } else {
                     

@@ -69,8 +69,12 @@
     // Title
     if (_titleViewControl)
         self.title = _titleViewControl;
-    else
-        self.title = NSLocalizedString(@"_local_storage_", nil);
+    else {
+        if ([NCBrandOptions sharedInstance].use_available_offline_title == true)
+            self.title = NSLocalizedString(@"_available_offline_", nil);
+        else
+            self.title = NSLocalizedString(@"_local_storage_", nil);
+    }
 }
 
 // Apparirà
