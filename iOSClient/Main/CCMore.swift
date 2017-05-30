@@ -371,7 +371,6 @@ class CCMore: UIViewController, UITableViewDelegate, UITableViewDataSource, CCLo
                 self.loginWeb.presentModalWithDefaultTheme(self)
             }
             
-            
             let actionNo = UIAlertAction(title: NSLocalizedString("_no_delete_", comment: ""), style: .default) { (action:UIAlertAction) in
                 print("You've pressed No button");
             }
