@@ -431,7 +431,7 @@
             sectionName = NSLocalizedString(@"_favorite_offline_footer_", nil);
         }
         break;
-        case 5: {
+        case 4: {
             
             tableCapabilities *capabilities = [[NCManageDatabase sharedInstance] getCapabilitesForAccount:app.activeAccount];
             
